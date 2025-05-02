@@ -1,62 +1,84 @@
-
-# Island Explorer
-
-- Authors:
-  - [Ayush, Patel](patea237@mcmaster.ca) 
-  - [Waqar, Ul-Hassan](waqarulw@mcmaster.ca)
-  - [Muhammad, Zaka](zakam@mcmaster.ca)
-
-## Product Description
-
-This product is an _exploration command center_ for the [Island](https://ace-design.github.io/island/) serious game. This project provided valuable experience in teamwork, project management, and software development using agile methodologies. The team's successful implementation of the exploration command center demonstrates our ability to collaborate effectively and deliver high-quality software.
-
-- The `ca.mcmaster.se2aa4.island.team217.Explorer` class implements the command center using Java for a drone simulation game. 
-- The `Runner` class allows one to run the command center on a specific map.
-
+# RescueMission 
 
 ## Development Process
-- **Agile Developement**: This project was implemented in an iterative and incremental fashion. We conducted regular team meetings to define project goals and prioritize tasks
-- **GitHub Issue Tracking**: Used a Kanban board on GitHub to manage tasks, assign responsibilities, and track project progress
-- **Documentation**: Documented the team's progress in a project report, which includes the team's thought process, and justification for key design choices
-  
-## Technical Details
-- **Object Oriented Programming**: Adhered to OOP principles for modular and maintainable code
-- **SOLID Principles**: Incorporated SOLID principles taught in class for robust and scalable code
-- **UML Diagrams**: Utilized UML diagrams (class and sequence diagrams) to visualize the system design and interactions
-- **Unit Testing**: Developed and maintained comprehensive unit tests to improve code quality and reliability
-  
-## How to compile and run the project
 
-### Compiling the project:
+The complete Agile software development life cycle was followed for this project. This meant an incremental and iterative approach for gradual release of value. From gathering requirements, to brainstorming, to designing a walking skeleton, developing an MVP, gathering feedback from experienced individuals in the field, to testing, and deployment. This is the result of 2 months of iterative and incremental development.
 
+**Software Engineering techniques such as SOLID principles, GRASP patterns, GoF Design Patterns, Object Oriented Design, Encapsulation, Information Hiding, Unit Testing, CI/CD, Project Management through GitHub Projects, Effective Version Control, and more were used and prioritized throughout the development of this product.**
+
+## Overview
+
+RescueMission is a Java-based project developed as part of an assignment for the SFWRENG 2AA4 course at McMaster University. The project involves creating a command center for a rescue drone to explore an island, locate stranded individuals, and identify suitable rescue points.
+
+This product is an _exploration command center_ for the [Island](https://ace-design.github.io/island/) serious game. 
+
+## Project Description
+
+You have been tasked by ACME Corp to develop a control system for their rescue drone, designed to find survivors on isolated islands and determine the best locations for rescue teams to land. The drone operates in a marine environment and must navigate hostile terrain while managing its battery, radio range, and command integrity.
+
+The drone is controlled through commands sent to it, which include:
+
+### Key Objectives
+
+1. **Locate the Island**: Use radar and photo scanners to find the island.
+2. **Find Emergency Sites**: Identify the location of emergency sites where survivors are sheltering.
+3. **Locate Creeks**: Determine suitable inlets on the island's coast for rescue boats to land.
+4. **Optimize Commands**: Ensure efficient use of the drone's battery and maintain control integrity.
+
+## Drone Control Commands
+
+- **Fly**: Move the drone forward.
+- **Heading**: Change the drone's direction.
+- **Radar**: Use sensors to detect terrain.
+- **Photo Scanner**: Identify biomes and points of interest.
+- **Stop**: End the mission and return to base.
+
+## Technical Environment
+
+The project uses the following technologies and tools:
+- **Java**: Core programming language.
+- **Maven**: For project management and build automation.
+- **JSON**: For command communication with the drone.
+- **JUnit**: Testing framework used.
+- **UML**: For modeling the system design.
+
+## How to Compile
+
+To compile the project, use Maven:
+```bash
+mvn clean package
 ```
-mosser@azrael a2-template % mvn clean package
-...
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  0.960 s
-[INFO] Finished at: 2024-01-20T18:26:43-05:00
-[INFO] ------------------------------------------------------------------------
-mosser@azrael a2-template % 
+
+## How to Run
+
+To execute the command center with a specific map, use:
+```bash
+mvn exec:java -q -Dexec.args="./maps/map03.json"
 ```
 
-This creates one jar file in the `target` directory.
+This will generate output files in the `outputs` directory:
+- `_pois.json`
+- `Explorer_Island.json`
+- `Explorer.svg`
 
-As the project is intended to run in the competition arena, this jar is not executable. 
+## Deliverables
 
-### Run the project
+1. **Source Code**: Main branch on the GitHub repository.
+2. **Kanban Board**: Project management.
+3. **Documentation**: Detailed software design and implementation report.
 
-The project is not intended to be started by the user, but instead to be part of the competition arena. However, one might one to execute their command center on local files for testing purposes.
+## Repository Structure
 
-To do so, we ask maven to execute the `Runner` class, using a map provided as parameter:
+1. UML/: Contains UML diagrams for the project.
+2. maps/: Includes JSON files of different maps used for testing.
+3. src/: Source code directory.
 
-```
-mosser@azrael a2-template % mvn exec:java -q -Dexec.args="./maps/map03.json"
-```
+## Deploying the project to the arena
 
-It creates three files in the `outputs` directory:
+Each week, we had to `tag` the version of our code we wanted to submit for the competition. This version would be used in the weekly run, which got harder each week. No tag means no competition, emphasing iterative and incremental delivery. 
 
-- `_pois.json`: the location of the points of interests
-- `Explorer_Island.json`: a transcript of the dialogue between the player and the game engine
-- `Explorer.svg`: the map explored by the player, with a fog of war for the tiles that were not visited.
+The tag syntax is `wX`, with `X` the week number. So our product for the first week would be tagged `w1`.
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE.txt file for details.
